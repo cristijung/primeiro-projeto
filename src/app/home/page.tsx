@@ -1,10 +1,11 @@
 import React from "react";
-import Home from "../page";
+
 
 export default function Start() {
     return(
         <>
-        <Home/>
+      
+      <h1>Seja Bem Vindo</h1>
         
         </>
     );

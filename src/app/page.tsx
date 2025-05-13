@@ -1,10 +1,12 @@
 import React from "react";
-
+import Start from "./home/page";
 
 export default function Home() {
   return (
-    <>  
-       Esta é a tela inicial da minha aplicação      
+    <>
+      <section style={{ maxWidth: "90%", margin: "auto" }}>
+        <Start />
+      </section>
     </>
   );
 }
