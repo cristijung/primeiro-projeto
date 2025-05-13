@@ -6,27 +6,26 @@
 
 .container {
   display: flex;
-  justify-content: space-around; // Espaça as seções uniformemente
+  justify-content: space-around; 
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 
   @media (max-width: 768px) {
-    flex-direction: column; // Empilha as seções em telas menores
-    align-items: center;
+    flex-direction: column; 
     text-align: center;
     padding: 2rem;
   }
 }
 
 .section {
-  flex: 1; // Cada seção ocupa uma porção igual do espaço disponível
+  flex: 1; 
   margin: 0 1rem;
 
   h3 {
     font-size: 1.2rem;
     margin-bottom: 1rem;
-    color: #007bff; // Um toque de azul para os títulos
+    color: #007bff; 
   }
 
   p,
@@ -42,7 +41,7 @@
       margin-bottom: 0.5rem;
 
       a {
-        color: #adb5bd; // Um cinza mais claro para os links
+        color: #adb5bd; 
         text-decoration: none;
         transition: color 0.3s ease-in-out;
 
@@ -75,21 +74,10 @@
 }
 
 .copyright {
-  background-color: rgba(#000, 0.1); // Um fundo levemente transparente
+  background-color: rgba(#000, 0.1); 
   padding: 1rem 0;
   text-align: center;
   font-size: 0.8rem;
   color: #6c757d;
 }
 
-// Você pode adicionar mais estilos aqui para personalizar ainda mais o seu footer
-// Por exemplo, estilos para redes sociais, formulários de newsletter, etc.
-
-// Exemplo de um estilo mais destacado para o título da seção:
-/*
-.section h3 {
-  border-bottom: 2px solid #007bff;
-  padding-bottom: 0.5rem;
-  margin-bottom: 1.5rem;
-}
-*/
