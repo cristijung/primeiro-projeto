@@ -1,0 +1,94 @@
+.navLink {
+  display: inline-block; // Para que possamos controlar padding e margin
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  color: #f8f3f3; 
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+  position: relative; // Para a animação de linha inferior
+
+  &:hover {
+    color: #ebe8bd; 
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #37024c; // Cor da linha inferior
+    transition: width 0.3s ease-in-out;
+  }
+
+  &:hover::before {
+    width: 100%;
+  }
+
+  &.active {
+    color: #f4f461;
+    font-weight: bold;
+
+    &::before {
+      width: 100%;
+    }
+  }
+}
+
+// Outra opção de estilo com um efeito de "caixa" sutil ao passar o mouse:
+/*
+.navLink--box {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #f0f0f0; // Cinza claro ao passar o mouse
+    color: #007bff;
+  }
+
+  &.active {
+    background-color: #007bff;
+    color: white;
+  }
+}
+*/
+
+// Uma terceira opção com um efeito de "underline suave" que cresce do centro:
+/*
+.navLink--underline-center {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    right: 50%;
+    height: 2px;
+    background-color: #007bff;
+    transition: left 0.3s ease-in-out, right 0.3s ease-in-out;
+  }
+
+  &:hover::before,
+  &.active::before {
+    left: 0;
+    right: 0;
+  }
+
+  &.active {
+    color: #007bff;
+    font-weight: bold;
+  }
+}
+*/

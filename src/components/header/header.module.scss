@@ -1,0 +1,84 @@
+.header {
+  background-color: #3a0258; 
+  padding: 1rem 0;
+  border-bottom: 1px solid #ac0def; 
+  position: sticky; 
+  top: 0;
+  z-index: 100; 
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @media (max-width: 768px) {
+    padding: 0 15px;
+  }
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f3f4f5; 
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    color: #f3cc08; // pseudo elemento encadeado dentro da classe
+  }
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.navItem {
+  margin-left: 1.5rem;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.navLink {
+  text-decoration: none;
+  color: #f4ecf8; 
+  transition: color 0.3s ease-in-out; // Transição suave para o hover
+
+  &:hover {
+    color: #dc79fa;
+  }
+}
+
+// Você pode adicionar mais estilos aqui para personalizar ainda mais o seu header
+// Por exemplo, estilos para um botão de login, um menu hambúrguer para mobile, etc.
+
+// Exemplo de um estilo mais elaborado para o header com gradiente e sombra:
+/*
+.header--fancy {
+  background: linear-gradient(to right, #6a11cb, #2575fc); // Gradiente roxo para azul
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  color: white;
+
+  .logo {
+    color: white;
+    &:hover {
+      color: #f8f9fa;
+    }
+  }
+
+  .navLink {
+    color: white;
+    &:hover {
+      color: #f8f9fa;
+    }
+  }
+}
+*/

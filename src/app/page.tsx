@@ -1,12 +1,13 @@
+import React from "react";
+import Header from "@/components/header/Header";
+import Footer from "@/components/footer/Footer";
+
 export default function Home() {
   return (
     <>
-      <div>
-        <h1>Olá</h1>
-      </div>
-      <div>
-        <h2>Oi</h2>
-      </div>
+      <Header/>
+      <h1>Conteúdo</h1>
+      <Footer/>
     </>
   );
 }
