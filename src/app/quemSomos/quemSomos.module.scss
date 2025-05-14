@@ -1,0 +1,66 @@
+
+.quemSomosContainer {
+  padding: 40px 20px;
+  background-color: #f9f9f9; 
+  color: #333;
+}
+
+.conteudo {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column; // responsividade p empilhar em telas menores
+  gap: 30px; 
+
+  @media (min-width: 768px) {
+    flex-direction: row; // responsividade lado a lado em telas maiores
+    align-items: flex-start;
+  }
+}
+
+.colunaTexto {
+  flex: 1; 
+  min-width: 0; 
+}
+
+.titulo {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    text-align: left;
+  }
+}
+
+.paragrafo {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.colunaImagem {
+  flex: 1; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 0; 
+}
+
+.imageWrapper {
+  width: 100%; 
+  max-width: 500px; 
+  border-radius: 8px; 
+  overflow: hidden; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+
+  
+  span {
+    display: block !important; 
+  }
+}

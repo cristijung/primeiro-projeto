@@ -4,7 +4,7 @@ Nos .module.scss, se pode acessar as var CSS globais usando a função 'var()' d
 .textoGrande {
   font-size: var(--tamanho-fonte-grande);
 } 
-As vars=iáveis 'CSS Custom Properties' são nativas do navegador --> Os navegadores entendem como interpretá-las.
+As variáveis 'CSS Custom Properties' são nativas do navegador --> Os navegadores entendem como interpretá-las.
 O Sass (scss) não precisa 'conhecer' as vars antes: qdo se usa var(--nome-da-variavel) no scss, o Sass não vai tentar processar ou compilar essa variável em si. ele a mantém como está no CSS final gerado. 
 depois, o navegador, no momento da renderização, substitui var(--nome-da-variavel) pelo valor definido no :root ou em outro seletor declarado
 Com a modularidade mantida, se continua usando scss modular para estilos específicos de componentes, evitando conflitos de nomes, 
