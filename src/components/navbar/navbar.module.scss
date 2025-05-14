@@ -1,5 +1,5 @@
 // --- Variáveis ---
-$navbar-background: #510568; 
+$navbar-background: #510568; //esta variável foi colocada no global em CSS Custom Properties 
 $navbar-padding-vertical: 1rem;
 $navbar-padding-horizontal: 2rem;
 
@@ -7,7 +7,7 @@ $navbar-item-spacing: 2rem;
 
 // --- container da Navbar ---
 .navContainer {
-  background-color: $navbar-background;
+  background-color: var(--navbar-background); //aqui usa-se a função var() e busca a variável do global
   padding: $navbar-padding-vertical $navbar-padding-horizontal;
   display: flex; 
   // justify-content: space-between; // se tiver logo e links separados
