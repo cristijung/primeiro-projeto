@@ -1,0 +1,85 @@
+
+// --- variáveis para Design que podem ser colocadas no global ---
+
+$primary-color: #f5eb62; 
+$secondary-color: #c0b40c; //usando para active
+$text-color: #fdf4f4; 
+$text-color-hover: $primary-color;
+$text-color-active: $secondary-color; 
+
+$font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+$font-size: 1.5rem; //um pouco mais q 16px q é o padrão
+$font-weight: 500; 
+
+$transition-speed: 0.2s;
+$transition-timing-function: ease-in-out;
+
+$icon-spacing: 0.5em;  //p o ícone
+
+
+// acabaram as variáveis
+//começa a estilização
+.textLink {
+  display: inline-block; 
+  text-decoration: none; 
+  color: $text-color;
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  padding: 0.5em 0; // coloquei um padding maior para facilitar a área de clique
+  position: relative; 
+  cursor: pointer;
+  transition: color $transition-speed $transition-timing-function;
+
+  // aqui entramos com o encadeamento para colocar o after p transformação --- é frufru
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0); 
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: $primary-color;
+    transform-origin: bottom right; 
+    transition: transform $transition-speed $transition-timing-function;
+  }
+
+  &:hover,
+  &:focus-visible { // :focus-visible para acessibilidade, mostra o foco apenas via teclado e é importante
+    color: $text-color-hover;
+
+    &::after {
+      transform: scaleX(1); 
+      transform-origin: bottom left; 
+    }
+  }
+
+  &:active {
+    color: $text-color-active; //acessibilidade, retorna visual ao manter ativo
+
+    &::after {
+      background-color: $text-color-active; 
+    }
+  }
+
+ 
+  .linkContent {
+    display: flex; 
+    align-items: center; 
+    gap: $icon-spacing; 
+    //ou .... em função de navegadores
+    //margin-right: $icon-spacing;
+    
+  }
+
+  .iconWrapper {
+    display: inline-flex; 
+    align-items: center;
+    color: inherit;     
+    svg { //tamanho dos ícones, se quiser alterar
+      width: 0.8em; 
+      height: 0.8em;
+    }
+  }
+}

@@ -1,24 +1,52 @@
+// --- Variáveis ---
+$navbar-background: #510568; 
+$navbar-padding-vertical: 1rem;
+$navbar-padding-horizontal: 2rem;
+
+$navbar-item-spacing: 2rem; 
+
+// --- container da Navbar ---
+.navContainer {
+  background-color: $navbar-background;
+  padding: $navbar-padding-vertical $navbar-padding-horizontal;
+  display: flex; 
+  // justify-content: space-between; // se tiver logo e links separados
+  align-items: center;
+}
+
+// --- grupo de links ---
+.menuItems {
+  display: flex; // alinhar os links horizontalmente
+  align-items: center;
+  list-style: none; 
+  margin: 0;
+  padding: 0;
+  gap: $navbar-item-spacing; 
+}
+
+
 .navLink {
-  display: inline-block; // Para que possamos controlar padding e margin
-  padding: 0.75rem 1.5rem;
+  display: inline-block; 
+  padding: 0.75rem 0.25rem; 
   text-decoration: none;
-  color: #f8f3f3; 
+  color: #f8f3f3;
   font-weight: 500;
   transition: color 0.3s ease-in-out;
-  position: relative; // Para a animação de linha inferior
+  position: relative; 
 
   &:hover {
-    color: #ebe8bd; 
+    color: #ebe8bd;
   }
 
+  // animação do sublinhado
   &::before {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -2px; 
     left: 0;
     width: 0%;
     height: 2px;
-    background-color: #37024c; // Cor da linha inferior
+    background-color: #ebe8bd; 
     transition: width 0.3s ease-in-out;
   }
 
@@ -26,69 +54,14 @@
     width: 100%;
   }
 
+  
   &.active {
-    color: #f4f461;
+    color: #f4f461; 
     font-weight: bold;
 
-    &::before {
+    &::before { // garante que o sublinhado apareça no link ativo
       width: 100%;
+      background-color: #f4f461; 
     }
   }
 }
-
-// Outra opção de estilo com um efeito de "caixa" sutil ao passar o mouse:
-/*
-.navLink--box {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  border-radius: 4px;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-
-  &:hover {
-    background-color: #f0f0f0; // Cinza claro ao passar o mouse
-    color: #007bff;
-  }
-
-  &.active {
-    background-color: #007bff;
-    color: white;
-  }
-}
-*/
-
-// Uma terceira opção com um efeito de "underline suave" que cresce do centro:
-/*
-.navLink--underline-center {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    bottom: 2px;
-    left: 50%;
-    right: 50%;
-    height: 2px;
-    background-color: #007bff;
-    transition: left 0.3s ease-in-out, right 0.3s ease-in-out;
-  }
-
-  &:hover::before,
-  &.active::before {
-    left: 0;
-    right: 0;
-  }
-
-  &.active {
-    color: #007bff;
-    font-weight: bold;
-  }
-}
-*/

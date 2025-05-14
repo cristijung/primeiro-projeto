@@ -1,17 +1,32 @@
-import Link from "next/link";
 import React from "react";
-import styles from './navbar.module.scss';
+import styles from "./navbar.module.scss";
+import TextMenu from "../textmenu/TextMenu";
+import {
+  FaHome,
+  FaInfoCircle,
+  FaConciergeBell,
+  FaEnvelope,
+} from "react-icons/fa";
 
 export default function NavBar() {
-    return(
-        <>
-        <nav className={styles.navLink}>
-            <Link href='/home'>Home | </Link>
-            <a href="/home">Home | </a>
-            <Link href='/quemSomos'>Quem Somos | </Link>
-            <Link href='/portfolio'>Portfólio | </Link>
-            <Link href='/contato'>Contato | </Link>            
-        </nav>
-        </>
-    );
+  return (
+    <>
+      <nav className={styles.navContainer}>
+        <div className={styles.menuItems}>
+          <TextMenu texto="Home" href="/" icon={<FaHome />} />
+          <TextMenu
+            texto="Quem Somos"
+            href="/quemSomos"
+            icon={<FaInfoCircle />}
+          />
+          <TextMenu
+            texto="Serviços"
+            href="/servicos"
+            icon={<FaConciergeBell />}
+          />
+          <TextMenu texto="Contato" href="/contato" icon={<FaEnvelope />} />
+        </div>
+      </nav>
+    </>
+  );
 }
