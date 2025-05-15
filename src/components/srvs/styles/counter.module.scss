@@ -1,0 +1,106 @@
+
+$primary-color: #390468; 
+$primary-hover-color: darken($primary-color, 8%);
+$secondary-bg-color: #f4f7fc; 
+$card-bg-color: #ffffff;       
+$text-color-dark: #2c3e50;    
+$text-color-light: #ffffff;   
+$text-color-medium: #5a6a7a; 
+$border-color-soft: #dbe2f0;  
+
+$border-radius-base: 10px; 
+$shadow-soft: 0 5px 10px rgba(0, 0, 0, 0.08); 
+$font-family-sans: 'Nunito Sans', 'Helvetica Neue', Arial, sans-serif; 
+
+// lembrando q este é um código de aula e não coloquei as var de cores no global,
+// então estou assassinando a estilização 
+// o certo é colocar no global e trazer para cá com a função var()
+
+// ------------------------------------------------------
+
+// container principal
+.counterContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem; 
+  padding: 2.5rem 2rem;
+  background-color: $card-bg-color;
+  border-radius: $border-radius-base + 6px; 
+  box-shadow: $shadow-soft;
+  max-width: 320px; 
+  margin: 2.5rem auto; 
+  font-family: $font-family-sans;
+  text-align: center;
+  border: 1px solid $border-color-soft; 
+}
+
+// vlr da contagem
+.countDisplay {
+  font-size: 4.5rem; 
+  font-weight: 800; 
+  color: $primary-color;
+  line-height: 1; 
+  margin-bottom: 0.25rem;   
+  text-shadow: 1px 1px 2px rgba(darken($primary-color, 20%), 0.1);
+}
+
+// grupo p os btns  de incremento e decremento
+.buttonGroup {
+  display: flex;
+  gap: 1.25rem; 
+  margin-bottom: 1.25rem; 
+}
+
+
+.controlButton {
+  padding: 0.8rem 0; 
+  font-size: 1.75rem; 
+  font-weight: bold;
+  line-height: 1;
+  color: $text-color-light;
+  background-image: linear-gradient(to bottom, $primary-color, darken($primary-color, 5%));
+  border: none;
+  border-radius: $border-radius-base;
+  cursor: pointer;
+  transition: background-image 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+  min-width: 70px; 
+  box-shadow: 0 3px 6px rgba(darken($primary-color, 10%), 0.2);
+
+  &:hover {
+    background-image: linear-gradient(to bottom, $primary-hover-color, darken($primary-hover-color, 5%));
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 5px 8px rgba(darken($primary-color, 10%), 0.25);
+  }
+
+  &:active {
+    transform: translateY(0px) scale(0.98);
+    background-image: linear-gradient(to bottom, darken($primary-color, 10%), darken($primary-color, 15%));
+    box-shadow: 0 2px 4px rgba(darken($primary-color, 10%), 0.2);
+  }
+}
+
+// btn reset
+.resetButton {
+  padding: 0.7rem 1.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: $text-color-medium;
+  background-color: $secondary-bg-color;
+  border: 1px solid $border-color-soft;
+  border-radius: $border-radius-base - 2px; 
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+
+  &:hover {
+    background-color: darken($secondary-bg-color, 4%);
+    border-color: darken($border-color-soft, 8%);
+    color: $text-color-dark;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    background-color: darken($secondary-bg-color, 7%);
+    transform: translateY(0px);
+  }
+}

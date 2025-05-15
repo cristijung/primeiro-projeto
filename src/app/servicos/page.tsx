@@ -1,0 +1,20 @@
+
+import React from "react";
+import styles from './servicos.module.scss';
+import Counter from "@/components/srvs/Counter";
+
+export default function Servicos() {
+    return(
+        <>
+        <section className={styles.servicosPageContainer}>
+            <h1 className={styles.pageTitle}>Hooks & Hooks Personalizados</h1>
+            <main className={styles.componentWrapper}>
+                <Counter />
+
+              
+            </main>
+        </section>
+        
+        </>
+    );
+}

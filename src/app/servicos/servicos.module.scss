@@ -1,0 +1,97 @@
+
+$font-family-sans: 'Nunito Sans', 'Helvetica Neue', Arial, sans-serif;
+
+$page-bg-color: #1d0339;
+$page-bg-gradient: linear-gradient(135deg, #eef2f7 0%, #f8f9fc 100%);
+$title-color: #2c3e50; 
+$text-color-base: #34495e; 
+
+$scrollbar-track-color: #eef2f7;
+$scrollbar-thumb-color: #bcc8d8; 
+$scrollbar-thumb-hover-color: darken($scrollbar-thumb-color, 10%);
+
+// lembrando q este é um código de aula e não coloquei as var de cores no global,
+// então estou assassinando a estilização 
+// o certo é colocar no global e trazer para cá com a função var()
+
+// ------------------------------------------------------
+
+
+// container principal
+.servicosPageContainer {
+  min-height: 100vh; 
+  background: $page-bg-gradient;
+  padding: 3rem 1.5rem 4rem; 
+  font-family: $font-family-sans;
+  color: $text-color-base;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  overflow-y: auto; 
+
+  // barra de rolagem
+  &::-webkit-scrollbar {
+    width: 12px; 
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $scrollbar-track-color;
+    border-radius: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $scrollbar-thumb-color;
+    border-radius: 6px;
+    border: 3px solid $scrollbar-track-color; 
+
+    &:hover {
+      background-color: $scrollbar-thumb-hover-color;
+    }
+  }
+
+  // barra de rolagem p firefox 
+  scrollbar-width: thin; 
+  scrollbar-color: $scrollbar-thumb-color $scrollbar-track-color;
+}
+
+// título da page
+.pageTitle {
+  font-size: 3rem; 
+  font-weight: 800; 
+  color: $title-color;
+  margin-bottom: 3.5rem; 
+  text-align: center;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background-color: $title-color; 
+    margin: 0.75rem auto 0;
+    border-radius: 2px;
+    opacity: 0.8;
+  }
+}
+
+// wrapper para os componentes individuais (hooks)
+.componentsWrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+  gap: 3rem; 
+  width: 100%;
+  max-width: 1300px; 
+  margin: 0 auto; 
+  // aqui garante que os componentes filhos (que são os containers dos seus componentes individuais -- hooks)
+  // se expandam para preencher a célula do grid. O `margin: auto` dentro de cada
+  // componente individual irá centralizá-los se eles tiverem max-width menor que a célula.
+  > * {
+    width: 100%;
+    display: flex; 
+    justify-content: center; 
+    align-items: flex-start; 
+  }
+}

@@ -39,7 +39,7 @@ export default function QuemSomos() {
               priority={true} //define a prioridade no carregamento
               placeholder="blur"              
             />
-          </div>
+          </div>         
         </div>
       </div>
     </section>
