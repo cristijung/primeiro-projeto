@@ -1,0 +1,195 @@
+$primary-color: #2f0364;
+$primary-hover-color: darken($primary-color, 8%);
+$secondary-bg-color: #f4f7fc;
+$card-bg-color: #ffffff;
+$text-color-dark: #2c3e50;
+$text-color-medium: #5a6a7a;
+$text-color-light: #ffffff;
+$text-color-muted: #8a98a9;
+$error-bg-color: #fff0f0;
+$error-text-color: #d9534f;
+$error-border-color: #f5c6cb;
+$success-color: #5cb85c;
+
+$border-radius-base: 12px;
+$border-radius-small: 8px;
+$shadow-soft: 0 6px 12px rgba(0, 0, 0, 0.08);
+$shadow-medium: 0 8px 16px rgba(0, 0, 0, 0.1);
+$font-family-sans: 'Nunito Sans', 'Helvetica Neue', Arial, sans-serif;
+
+// lembrando q este é um código de aula e não coloquei as var de cores no global,
+// o certo é colocar no global e trazer para cá com a função var()
+
+// ------------------------------------------------------
+.catFetcherContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+  padding: 2.5rem 2rem;
+  background: linear-gradient(135deg, $secondary-bg-color 0%, lighten($secondary-bg-color, 5%) 100%);
+  border-radius: $border-radius-base + 4px;
+  box-shadow: $shadow-medium;
+  max-width: 520px;
+  margin: 2.5rem auto;
+  font-family: $font-family-sans;
+  text-align: center;
+  overflow: hidden;
+
+  // title do componente
+  .title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: $primary-color;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.25rem;
+  }
+
+  // btn principal
+  .fetchButton {
+    padding: 0.8rem 1.8rem;
+    background-image: linear-gradient(to right, $primary-color 0%, lighten($primary-color, 10%) 100%);
+    color: $text-color-light;
+    border: none;
+    border-radius: $border-radius-base;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(darken($primary-color, 10%), 0.2);
+
+    &:hover {
+      background-image: linear-gradient(to right, $primary-hover-color 0%, $primary-color 100%);
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 6px 12px rgba(darken($primary-color, 10%), 0.3);
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 4px rgba($primary-color, 0.3), 0 6px 12px rgba(darken($primary-color, 10%), 0.3);
+    }
+
+    &:disabled {
+      background-image: none;
+      background-color: #bdc3c7;
+      color: #7f8c8d;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+  }
+
+  .loadingText {
+    font-style: italic;
+    display: inline-block;
+  }
+
+  .errorBox {
+    margin-top: 1rem;
+    padding: 1.25rem;
+    background-color: $error-bg-color;
+    color: $error-text-color;
+    border: 1px solid $error-border-color;
+    border-left: 5px solid $error-text-color;
+    border-radius: $border-radius-small;
+    width: 100%;
+    text-align: left;
+
+    strong {
+      font-weight: 700;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    p {
+      line-height: 1.6;
+    }
+  }
+
+  // card p a img do cats
+  .imageCard {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid #e0e7f1;
+    border-radius: $border-radius-base;
+    background-color: $card-bg-color;
+    box-shadow: $shadow-soft;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  // title de dentro do card da img
+  .imageTitle {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: $text-color-dark;
+    margin-bottom: 1rem;
+  }
+
+  // wrapper p a img, controla o aspect ratio e aparência
+  .imageWrapper {
+    width: 100%;
+    max-width: 420px;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: $border-radius-small;
+    background-color: #eef2f7;
+    margin-bottom: 1rem;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.04);
+
+    @media (min-width: 640px) {
+      aspect-ratio: 4 / 3;
+    }
+  } 
+
+  // img do gato
+  .catImage {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: $border-radius-small;
+    transition: transform 0.4s ease-out;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  // ID da img
+  .imageId {
+    font-size: 0.8rem;
+    color: $text-color-muted;
+    margin-top: 0.75rem;
+    font-style: italic;
+    background-color: $secondary-bg-color;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+  }
+
+  // placeholder qdo não há imagem
+  .placeholderText {
+    color: $text-color-medium;
+    margin-top: 1rem;
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .imageAppear {
+    animation: fadeInScaleUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  }
+
+} 
+
+@keyframes fadeInScaleUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
