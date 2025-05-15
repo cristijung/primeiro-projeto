@@ -1,0 +1,176 @@
+
+$primary-color: #008080; 
+$primary-color-light: lighten($primary-color, 15%);
+$primary-color-dark: darken($primary-color, 10%);
+
+$secondary-bg-color: #f0f7f7; 
+$card-bg-color: #ffffff;
+$text-color-light: #ffffff;
+$text-color-dark: #2c3e50;  
+$text-color-medium: #5d737e; 
+$text-color-muted: #95a5a6;   
+
+$error-bg-color: #fff2f2;    
+$error-text-color: #c0392b;  
+$error-border-color: #eebbc0; 
+
+$link-color: #2980b9;          
+$link-hover-color: darken($link-color, 10%);
+
+$border-radius-base: 10px;
+$border-radius-card: 12px;
+$shadow-card: 0 8px 20px rgba(0, 0, 0, 0.1);
+$shadow-status: 0 4px 10px rgba(0, 0, 0, 0.07);
+$font-family-sans: 'Nunito Sans', 'Helvetica Neue', Arial, sans-serif;
+
+// lembrando q este é um código de aula e não coloquei as var de cores no global,
+// então estou assassinando a estilização 
+// o certo é colocar no global e trazer para cá com a função var()
+
+// ------------------------------------------------------
+
+// estilos para os states (carregando, erro, sem fato) 
+.statusContainer {
+  padding: 1.75rem 2rem;
+  max-width: 480px;
+  margin: 2.5rem auto;
+  text-align: center;
+  font-family: $font-family-sans;
+  border-radius: $border-radius-base;
+  box-shadow: $shadow-status;
+  background-color: $card-bg-color; 
+}
+
+.loadingState {
+  @extend .statusContainer;
+  color: $text-color-medium;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem; 
+
+  .spinner {
+    width: 28px;
+    height: 28px;
+    border: 4px solid rgba($primary-color, 0.25);
+    border-top-color: $primary-color;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  p {
+    font-size: 1.05rem;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.errorState {
+  @extend .statusContainer;
+  background-color: $error-bg-color;
+  color: $error-text-color;
+  border: 1px solid $error-border-color;
+  text-align: left; 
+
+  .errorTitle {
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin-bottom: 0.6rem;
+    color: darken($error-text-color, 10%);
+  }
+  .errorMessage {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+
+.noFactState {
+  @extend .statusContainer;
+  color: $text-color-muted;
+  font-style: italic;
+  font-size: 1.05rem;
+}
+
+// estilos para o fato carregado com sucesso 
+.dailyFactContainer {
+  padding: 2.5rem 3rem; 
+  max-width: 600px;
+  margin: 2.5rem auto;
+  font-family: $font-family-sans;
+  background: linear-gradient(140deg, $primary-color 0%, $primary-color-light 100%);
+  color: $text-color-light;
+  border-radius: $border-radius-card;
+  box-shadow: $shadow-card;
+  position: relative;
+  overflow: hidden; 
+
+ 
+  &::before {
+    content: '\f10d';                       
+    font-family: 'Font Awesome 5 Free', 'FontAwesome'; 
+    font-weight: 900; 
+    position: absolute;
+    top: 1rem;
+    left: 1.5rem;
+    font-size: 5rem;
+    color: rgba($text-color-light, 0.08);
+    z-index: 0;
+    transform: rotate(-5deg);
+  }
+}
+
+
+.factContentWrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.factTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba($text-color-light, 0.9); 
+}
+
+.factText {
+  font-size: 1.5rem; 
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+  font-style: italic;
+  text-align: center;
+  
+  &::before {
+    content: '“';
+    margin-right: 0.1em;
+    font-size: 1.2em; 
+    opacity: 0.7;
+  }
+  &::after {
+    content: '”';
+    margin-left: 0.1em;
+    font-size: 1.2em;
+    opacity: 0.7;
+  }
+}
+
+.sourceLink {
+  display: block;
+  text-align: right;
+  font-size: 0.9rem;
+  color: rgba($text-color-light, 0.8);
+  text-decoration: none;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+
+  &:hover,
+  &:focus {
+    color: $text-color-light;
+    text-decoration: underline;
+    outline: none;
+  }
+}

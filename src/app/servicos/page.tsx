@@ -3,6 +3,7 @@ import React from "react";
 import styles from './servicos.module.scss';
 import Counter from "@/components/srvs/Counter";
 import CatFetch from "@/components/catApi/CatFetch";
+import DailyFact from "@/components/srvs/DailyFact";
 
 export default function Servicos() {
     return(
@@ -12,6 +13,7 @@ export default function Servicos() {
             <main className={styles.componentWrapper}>
                 <Counter />
                 <CatFetch />
+                <DailyFact />
 
               
             </main>
