@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-// Interface para a estrutura esperada do fato da API (pode ser movida para um arquivo de tipos se usada em mais lugares)
+
 export interface FactData {
   id: string;
   text: string;
