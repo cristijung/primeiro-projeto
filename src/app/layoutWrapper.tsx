@@ -1,12 +1,10 @@
-import type { Metadata } from "next";
+'use client';
+
 import "./globals.css";
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
+import MyContextProvider from "@/provider/MyContextProvider";
 
-export const metadata: Metadata = {
-  title: "Primeiro Projeto React/NextJs",
-  description: "Mini projeto usado para explicação em aula",
-};
 
 export default function LayoutWrapper({
   children,
@@ -16,9 +14,11 @@ export default function LayoutWrapper({
   return (
     <html lang="en">
       <body>
+        <MyContextProvider>
         <Header/>
         {children}
         <Footer/>
+        </MyContextProvider>
       </body>
     </html>
   );

@@ -1,3 +1,4 @@
+import MeuCoomponenteContex from "@/components/oneComponent/MeuComponenteContext";
 import React from "react";
 
 
@@ -6,6 +7,7 @@ export default function Start() {
         <>
       
       <h1>Seja Bem Vindo</h1>
+      <MeuCoomponenteContex />
         
         </>
     );
