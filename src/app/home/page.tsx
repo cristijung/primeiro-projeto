@@ -1,3 +1,4 @@
+import { MeuComponente } from "@/components/umComponente/MeuComponente";
 import React from "react";
 
 
@@ -6,6 +7,7 @@ export default function Start() {
         <>
       
       <h1>Seja Bem Vindo</h1>
+      <MeuComponente />
         
         </>
     );
